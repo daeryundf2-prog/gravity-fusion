@@ -1,0 +1,27 @@
+=== inheritMcp (1) ===
+[125064204] yaml:"inheritMcp,omitempty"
+=== preloadSkills (1) ===
+[125356939] yaml:"preloadSkills,omitempty"
+=== enabledTools (4) ===
+[54627952] enabledTools
+[127913920] xxx_hidden_EnabledToolsXprotobuf:"bytes,4,rep,name=enabled_tools,json=enabledTools" protolegacy_presence_idx:"2"
+[128544399] EnabledToolsjjson:"enabledTools,omitempty,omitzero" yaml:"enabledTools,omitempty" mapstructure:"enabledTools,omitempty"
+[128991282] EnabledToolsuprotobuf:"bytes,10,rep,name=enabled_tools,json=enabledTools,proto3" json:"enabled_tools,omitempty" reflect:"unexport"
+=== disabledTools (4) ===
+[54627990] disabledTools
+[128010160] xxx_hidden_DisabledToolsZprotobuf:"bytes,5,rep,name=disabled_tools,json=disabledTools" protolegacy_presence_idx:"3"
+[128677496] DisabledToolsmjson:"disabledTools,omitempty,omitzero" yaml:"disabledTools,omitempty" mapstructure:"disabledTools,omitempty"
+[129076351] DisabledToolswprotobuf:"bytes,8,rep,name=disabled_tools,json=disabledTools,proto3" json:"disabled_tools,omitempty" reflect:"unexport"
+=== excludeDefaultComponents (3) ===
+[56840186] excludeDefaultComponentsJ
+[126310851] ExcludeDefaultComponents)yaml:"excludeDefaultComponents,omitempty"
+[131426057] protobuf:"varint,12,opt,name=exclude_default_components,json=excludeDefaultComponents,proto3" json:"exclude_default_components,omitempty" reflect:"unexport"
+=== json=inherit_mcp (0) ===
+=== name=inherit_mcp (0) ===
+=== name=preload_skills (0) ===
+=== name=mcp_servers (5) ===
+[127757064] xxx_hidden_McpServersVprotobuf:"bytes,14,rep,name=mcp_servers,json=mcpServers" protolegacy_presence_idx:"11"
+[128594600]  McpServersnprotobuf:"bytes,5,rep,name=mcp_servers,json=mcpServers,proto3" json:"mcp_servers,omitempty" reflect:"unexport"
+[128594969]  McpServersnprotobuf:"bytes,4,rep,name=mcp_servers,json=mcpServers,proto3" json:"mcp_servers,omitempty" reflect:"unexport"
+[128600627]  McpServersnprotobuf:"bytes,6,rep,name=mcp_servers,json=mcpServers,proto3" json:"mcp_servers,omitempty" reflect:"unexport"
+[128665028]  McpServersoprotobuf:"bytes,10,rep,name=mcp_servers,json=mcpServers,proto3" json:"mcp_servers,omitempty" reflect:"unexport"

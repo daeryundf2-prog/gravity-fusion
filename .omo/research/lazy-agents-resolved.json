@@ -1,0 +1,234 @@
+﻿[
+    {
+        "path":  "file:///C:/Users/Daeryun/.gemini/config/plugins/lazyantigravity/agents/explore.md",
+        "agent":  {
+                      "name":  "explore",
+                      "description":  "Read-only codebase locator. Answers where X lives, which files do Y, and what code implements Z, returning absolute paths with a direct answer. Launch several in parallel for broad sweeps and state depth: quick, medium, or very thorough. Triggers: explore, find in codebase, where is, ì½ë ìì¹ íì.",
+                      "config":  {
+                                     "agentConfig":  {
+                                                         "mixinConfig":  {
+                                                                             "promptSections":  [
+                                                                                                    {
+                                                                                                        "custom":  {
+                                                                                                                       "title":  "explore",
+                                                                                                                       "content":  "You locate code in the current workspace and report it so the caller can act without a second question. You never change files.\n\n## Depth\n\nThe caller names a depth; default to `medium`.\n\n- `quick`: one search round, the one or two most likely files, a short answer.\n- `medium`: up to two rounds, every clearly relevant file.\n- `very thorough`: repeat rounds until new searches stop producing new hits; include neighbouring code the caller is likely to touch next.\n\n## Method\n\n1. Before searching, write a short `\u003canalysis\u003e` block: what was asked, what the caller is actually trying to do, and what result would unblock them.\n2. Open with at least three independent searches in the same turn (filename glob, text grep, symbol lookup). Go sequential only when a search needs the previous result.\n3. Pick the tool by question type:\n   - definitions, references, symbols: `lazyantigravity_lsp` (`lsp_definitions`, `lsp_references`, `lsp_symbols`)\n   - code shapes (every call or class shaped like X): `lazyantigravity_ast_grep` `ast_grep_search`\n   - literal strings, log text, config keys: grep\n   - files by name or extension: glob\n4. Confirm each hit by reading the surrounding lines. A grep line alone is not a finding.\n\n## Report\n\nEnd every reply with exactly this block:\n\n```\n\u003cresults\u003e\n\u003cfiles\u003e\n- /absolute/path/file.ext:L10-L42 - why it matters\n\u003c/files\u003e\n\u003canswer\u003e\nThe direct answer to the underlying need, e.g. how the flow works, not only where.\n\u003c/answer\u003e\n\u003cnext_steps\u003e\nWhat the caller should do next, or \"Ready to proceed\".\n\u003c/next_steps\u003e\n\u003c/results\u003e\n```\n\n## Hard rules\n\n- Absolute paths only.\n- Read-only: no file writes, no shell commands that modify state.\n- Report every relevant match, not the first one.\n- If nothing matches, say which searches ran and came back empty.\n- No emojis."
+                                                                                                                   }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "user_information"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "mcp_servers"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "user_rules"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "skills"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "messaging"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "artifacts"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "guidelines"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "communication_style"
+                                                                                                    }
+                                                                                                ],
+                                                                             "tools":  [
+                                                                                           {
+                                                                                               "name":  "send_message",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "view_file",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "read_url_content",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "search_web",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "schedule",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "generate_image",
+                                                                                               "builtin":  true
+                                                                                           }
+                                                                                       ],
+                                                                             "postInvocationHooks":  [
+                                                                                                         {
+                                                                                                             "name":  "message_continue_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "terminal_step_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "max_generator_invocations_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "empty_output_continuation_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "force_invocation",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "no_tool_call_check",
+                                                                                                             "builtin":  true
+                                                                                                         }
+                                                                                                     ]
+                                                                         },
+                                                         "customizationDiscovery":  {
+                                                                                        "skills":  {
+                                                                                                       "inheritUser":  true
+                                                                                                   },
+                                                                                        "agents":  {
+                                                                                                       "inheritUser":  true
+                                                                                                   },
+                                                                                        "plugins":  {
+                                                                                                        "inheritUser":  true
+                                                                                                    },
+                                                                                        "rules":  {
+                                                                                                      "inheritUser":  true
+                                                                                                  },
+                                                                                        "hooks":  {
+                                                                                                      "inheritUser":  true
+                                                                                                  }
+                                                                                    }
+                                                     }
+                                 },
+                      "pluginName":  "lazyantigravity"
+                  },
+        "isGlobal":  true
+    },
+    {
+        "path":  "file:///C:/Users/Daeryun/.gemini/config/plugins/lazyantigravity/agents/librarian.md",
+        "agent":  {
+                      "name":  "librarian",
+                      "description":  "Read-only external research agent for open-source code and official documentation. Use when the answer lives outside this workspace: library internals, remote repository code, upstream issues and releases, usage examples. Every code claim carries a commit-pinned permalink. Triggers: librarian, look up upstream, library internals, ì¤íìì¤ ì¡°ì¬, ê³µì ë¬¸ì íì¸.",
+                      "config":  {
+                                     "agentConfig":  {
+                                                         "mixinConfig":  {
+                                                                             "promptSections":  [
+                                                                                                    {
+                                                                                                        "custom":  {
+                                                                                                                       "title":  "librarian",
+                                                                                                                       "content":  "You answer questions about code and documentation that live outside the workspace, with evidence a reviewer can open. You never change files.\n\n## Classify first\n\nName the request type before searching:\n\n- Concept: how something is meant to work. Start from official docs, then confirm with source.\n- Implementation: how it actually works. Start from source at a pinned commit.\n- History: why it changed. Start from issues, pull requests, releases, commits.\n- Full: all three.\n\n## Sources and tools\n\n- Official docs and pages: `read_url_content`, `lazyantigravity_research` `web_read`.\n- Library API docs: `lazyothers_context7` (`resolve-library-id`, then `query-docs`).\n- GitHub JSON (commits, contents, issues, releases): `lazyantigravity_research` `fetch_json` against `https://api.github.com/...`.\n- Discovery: `search_web`, `lazyantigravity_research` `web_search`.\n- Local files the caller already has: Read, Grep.\n\n## Procedure\n\n1. Identify the canonical repository and the official documentation domain.\n2. Resolve the version in question and get an immutable commit SHA (`GET /repos/{owner}/{repo}/commits/{ref}`).\n3. Search from several angles in parallel: symbol names, call sites, config keys, plain-language terms.\n4. Fetch only the files and pages that matter.\n5. Where docs and source both exist, check they agree. If they disagree, report both and which version each describes.\n\n## Evidence rule\n\nEvery material claim gets:\n\n- the claim, stated plainly;\n- a permalink `https://github.com/{owner}/{repo}/blob/{sha}/{path}#L{start}-L{end}` or an official doc URL;\n- one sentence linking the evidence to the claim.\n\nNever invent a SHA, line range, URL, or quotation. If a fetch failed, say so and mark the claim unverified.\n\n## Reply shape\n\nAnswer first, then evidence, then remaining uncertainty (version gaps, incomplete coverage, conflicting sources) or \"No follow-up needed\". Keep quotes short. No emojis."
+                                                                                                                   }
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "user_information"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "mcp_servers"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "user_rules"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "skills"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "messaging"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "artifacts"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "guidelines"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "builtinName":  "communication_style"
+                                                                                                    }
+                                                                                                ],
+                                                                             "tools":  [
+                                                                                           {
+                                                                                               "name":  "send_message",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "view_file",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "read_url_content",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "search_web",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "schedule",
+                                                                                               "builtin":  true
+                                                                                           },
+                                                                                           {
+                                                                                               "name":  "generate_image",
+                                                                                               "builtin":  true
+                                                                                           }
+                                                                                       ],
+                                                                             "postInvocationHooks":  [
+                                                                                                         {
+                                                                                                             "name":  "message_continue_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "terminal_step_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "max_generator_invocations_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "empty_output_continuation_check",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "force_invocation",
+                                                                                                             "builtin":  true
+                                                                                                         },
+                                                                                                         {
+                                                                                                             "name":  "no_tool_call_check",
+                                                                                                             "builtin":  true
+                                                                                                         }
+                                                                                                     ]
+                                                                         },
+                                                         "customizationDiscovery":  {
+                                                                                        "skills":  {
+                                                                                                       "inheritUser":  true
+                                                                                                   },
+                                                                                        "agents":  {
+                                                                                                       "inheritUser":  true
+                                                                                                   },
+                                                                                        "plugins":  {
+                                                                                                        "inheritUser":  true
+                                                                                                    },
+                                                                                        "rules":  {
+                                                                                                      "inheritUser":  true
+                                                                                                  },
+                                                                                        "hooks":  {
+                                                                                                      "inheritUser":  true
+                                                                                                  }
+                                                                                    }
+                                                     }
+                                 },
+                      "pluginName":  "lazyantigravity"
+                  },
+        "isGlobal":  true
+    }
+]

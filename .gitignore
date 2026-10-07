@@ -1,0 +1,4 @@
+node_modules/
+.lazyantigravity/
+*.log
+.omo/ulw-loop/checkpoints/

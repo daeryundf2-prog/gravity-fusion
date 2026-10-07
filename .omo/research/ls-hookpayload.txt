@@ -1,0 +1,34 @@
+=== json=terminationReason (4) ===
+[128925090] xxx_hidden_TerminationReasonbprotobuf:"bytes,1,opt,name=termination_reason,json=terminationReason" protolegacy_presence_idx:"0"
+[129007258] TerminationReasonpprotobuf:"bytes,2,opt,name=termination_reason,json=terminationReason,proto3" json:"termination_reason,omitempty"
+[131282007] protobuf:"varint,9,opt,name=termination_reason,json=terminationReason,enum=exa.cortex_pb.ExecutorTerminationReason" protolegacy_presence_idx:"7"8
+[132061662] protobuf:"varint,1,opt,name=termination_reason,json=terminationReason,proto3,enum=exa.cortex_pb.ExecutorTerminationReason" json:"termination_reason,omitempty" reflect:"unexport"
+=== json=fullyIdle (4) ===
+[127419149]  FullyIdleYprotobuf:"varint,4,opt,name=fully_idle,json=fullyIdle,proto3" json:"fully_idle,omitempty"
+[127436396]  FullyIdleZprotobuf:"varint,18,opt,name=fully_idle,json=fullyIdle,proto3" json:"fully_idle,omitempty"
+[127436498]  FullyIdleZprotobuf:"varint,14,opt,name=fully_idle,json=fullyIdle,proto3" json:"fully_idle,omitempty"
+[127690515]  FullyIdle`protobuf:"varint,10,opt,name=fully_idle,json=fullyIdle,proto3,oneof" json:"fully_idle,omitempty"
+=== json=transcriptPath (1) ===
+[128514236] TranscriptPathgprotobuf:"bytes,3,opt,name=transcript_path,json=transcriptPath,proto3" json:"transcript_path,omitempty"
+=== json=executionNum (1) ===
+[127882644] ExecutionNumbprotobuf:"varint,1,opt,name=execution_num,json=executionNum,proto3" json:"execution_num,omitempty"
+=== json=modelName (6) ===
+[127394571]  ModelNameXprotobuf:"bytes,4,opt,name=model_name,json=modelName,proto3" json:"model_name,omitempty"
+[127400271]  ModelNameXprotobuf:"bytes,6,opt,name=model_name,json=modelName,proto3" json:"model_name,omitempty"
+[127405071]  ModelNameXprotobuf:"bytes,1,opt,name=model_name,json=modelName,proto3" json:"model_name,omitempty"
+[127632765] xxx_hidden_ModelNameRprotobuf:"bytes,1,opt,name=model_name,json=modelName" protolegacy_presence_idx:"0"
+[127651926]  ModelName^protobuf:"bytes,1,opt,name=model_name,json=modelName,proto3,oneof" json:"model_name,omitempty"
+[127654906] xxx_hidden_ModelNameSprotobuf:"bytes,10,opt,name=model_name,json=modelName" protolegacy_presence_idx:"9"
+=== json=workspacePaths (6) ===
+[127834948] WorkspacePaths_protobuf:"bytes,7,opt,name=workspace_paths,json=workspacePaths,proto3,oneof" reflect:"unexport"
+[127876885] WorkspacePaths`protobuf:"bytes,11,opt,name=workspace_paths,json=workspacePaths,proto3,oneof" reflect:"unexport"
+[128514116] WorkspacePathsgprotobuf:"bytes,2,rep,name=workspace_paths,json=workspacePaths,proto3" json:"workspace_paths,omitempty"
+[129010420] WorkspacePathssprotobuf:"bytes,1,rep,name=workspace_paths,json=workspacePaths" json:"workspace_paths,omitempty" reflect:"unexport"
+[129227225] WorkspacePathszprotobuf:"bytes,2,rep,name=workspace_paths,json=workspacePaths,proto3" json:"workspace_paths,omitempty" reflect:"unexport"
+[129229310] WorkspacePathszprotobuf:"bytes,4,rep,name=workspace_paths,json=workspacePaths,proto3" json:"workspace_paths,omitempty" reflect:"unexport"
+=== json=agentName (3) ===
+[127400371]  AgentNameXprotobuf:"bytes,9,opt,name=agent_name,json=agentName,proto3" json:"agent_name,omitempty"
+[127644105] xxx_hidden_AgentNameRprotobuf:"bytes,2,opt,name=agent_name,json=agentName" protolegacy_presence_idx:"0"
+[128054611]  AgentNamekprotobuf:"bytes,1,opt,name=agent_name,json=agentName,proto3" json:"agent_name,omitempty" reflect:"unexport"
+=== json=customAgentName (0) ===
+=== json=roleHint (0) ===
