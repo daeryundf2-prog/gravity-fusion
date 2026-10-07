@@ -1,0 +1,6 @@
+{
+  "name": "gravity-fusion",
+  "displayName": "Gravity Fusion",
+  "description": "Native Gravity roles and quality hooks ported to Windows PowerShell as zero-dependency Node, wired to LazyAntigravity skills",
+  "version": "0.1.0"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-10-07T09:34:47.027Z",
+  "upstream": {
+    "repo": "sleegme/native-gravity",
+    "commit": "bc1d8ad010ef1cd336eac9acb4a8ca97c315e125",
+    "files": {
+      "VERSION": "be36d0066e8b6749a88a1c6bf1ce96482157ec618cb7f2aab162d3efae41f4d9",
+      "agents/bobcat.md": "c6539132c0cdcb15b4d561dde287fcc9af7cb7381f63eacafc838f1cd0ac9570",
+      "agents/bulldozer.md": "ed7011438a7b2089896dc578472a6c0a7a1e3d1ffd79f074e6225699a8e76880",
+      "agents/excavator.md": "e936c973d18492c66b8fc9f426eac1033a4499b9a8075d26abbc5ec186ee08a2",
+      "agents/jaguar.md": "0000787911055882e5570eaa97f8e5ce000f3d19eff1f1c9849fecb9c1ee816a",
+      "agents/piledriver.md": "f59970148301506e1ced780bd927118db5228312ab23cec3ae49af4eabf098c4",
+      "agents/puma.md": "bce7068fa959dd242cd8d7ecc8fb14d01a387fc36afd89d20588f38782e5a550",
+      "agents/steamroller.md": "aecdd540f7c4f76324cd242a7613359e526a943a1ec0883ef4678d737353d709",
+      "agents/strix-halo.md": "e2fe6addb53a81eda0cf3b18a66077179185d1b4962416ddee0a56bd968641a5",
+      "agents/zen.md": "4ec00b80e2a5ac4d7f6c87187a7bcba27161c183b1c7a4f46cf6b4a27bfbc1a7",
+      "hooks.json": "51d6ba2acf8eae0839acabbce963f7ca3475f9e70ee4f2c6f1c0d09402a81d97",
+      "hooks/excavator-review-gate.py": "2de763dffb0463374772891d0d67c5ed6fd0abece01b3b7078651505b1a7f87d",
+      "hooks/excavator-shell-guard.py": "732f00fc99555e310b2e6070d4a3125d7c3c62da7050b11b062067e22c19cab1",
+      "hooks/primary-review-gate.py": "897cb3f7bfd9945a1bcb866de6faa2d750c2950912d54ece5ba7ec588329248a",
+      "hooks/zen-shell-guard.py": "d8420fb6ef68aefceeb8eab7dfe411eb90d11b18902d677868cdf93918a270f2",
+      "package.json": "e5626beac2bf33f65d9d1e41cc11ccec7d3ed351ecdb0518ae63076af0119f1e",
+      "rules/harness.md": "29b763ac295afbf6f20e40a86e0016e695d0745f7c396d09b20bfba338ba1644",
+      "rules/orchestration.md": "4dbed4a2ed0a4955e89b2bd66de74278d262991ad3cae8fe6f1019bf41e1dce6",
+      "skills/README.md": "9264494f7254533ae9e99cd871bdb5118085ee9147a479c334d5d2d49faa6b81",
+      "skills/qa-artifact-consistency.md": "052c0b6ad98748828ea7ca964c12299a9b2339ff99ae4d89e107141dc51fffa7",
+      "skills/qa-behavioral-verification.md": "20becf39156f5c8ce11dfdb66bb60d7d4153f28d0070674d796ad0aac49b6da6",
+      "skills/qa-computed-outputs.md": "587e6ccf03226720e3caa2bb4f3ad665165932892f50c910a5f3bf9ec4962265",
+      "tests/test_excavator_review_gate.py": "7128d41614fb2d3d9d1aee16d2b9bdc1e056a30165435e8bb3eda356b78c2ab0",
+      "tests/test_excavator_shell_guard.py": "794fb43ec16b8cc7d38efa0fb23c7b2462d98b03b140100aaaeca29ab83a0805",
+      "tests/test_primary_review_gate.py": "2aea41ba708216017be7866b0f13265c404260852f99e29912c516841e493997",
+      "tests/test_zen_shell_guard.py": "0385c0461844b6c95361dd43fe402abd303f3660c821fc27390c9ba03defbf3b"
+    }
+  },
+  "lazyantigravity": {
+    "version": "0.9.0"
+  }
+}

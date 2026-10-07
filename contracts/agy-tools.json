@@ -1,0 +1,33 @@
+{
+  "hub": "2.21.0",
+  "builtinAgentTools": [
+    "view_file",
+    "list_dir",
+    "find_by_name",
+    "grep_search",
+    "run_command",
+    "write_to_file",
+    "replace_file_content",
+    "multi_replace_file_content",
+    "invoke_subagent",
+    "send_message",
+    "manage_subagents",
+    "read_url_content",
+    "search_web"
+  ],
+  "writeTools": [
+    "write_to_file",
+    "replace_file_content",
+    "multi_replace_file_content"
+  ],
+  "optInOnly": [
+    {
+      "name": "call_mcp_tool",
+      "reason": "google-antigravity/antigravity-cli#783: listing it in agent tools made executor construction fail (no tool converter registered); enable only after the gf-mcp-probe live check"
+    }
+  ],
+  "evidence": [
+    ".omo/research/ls-binscan.txt",
+    ".omo/research/ls-binscan3.txt"
+  ]
+}
