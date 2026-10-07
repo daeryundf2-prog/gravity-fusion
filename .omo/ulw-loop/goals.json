@@ -1,0 +1,303 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-07T09:27:55.300Z",
+  "updatedAt": "2026-10-07T09:27:55.300Z",
+  "briefPath": ".omo/ulw-loop/brief.md",
+  "goalsPath": ".omo/ulw-loop/goals.json",
+  "ledgerPath": ".omo/ulw-loop/ledger.jsonl",
+  "originalObjective": "# ulw-loop brief: gravity-fusion\n\nBuild the standalone Antigravity plugin `gravity-fusion` in this repo: native-gravity (bc1d8ad) roles and hooks ported to Windows/PowerShell/AGY hub-2.21.0 as zero-dependency Node, bound to lazyantigravity skills and MCP tools. Plan: `.omo/plans/gravity-fusion.md`. Contract: `contracts/conventions.md`.\n\n## Goals\n\n1. G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decoding and truncated-record substitution, Python-exact shlex + PowerShell tokenizer) with differential tests against CPython shlex.\n2. G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 POSIX parity (all upstream vectors + differential vs Python) plus PowerShell/Windows grammar; adversarial bypass corpus all denied.\n3. G-GATES: primary-review-gate and excavator-review-gate ported with all upstream vectors passing plus hub-2.21.0 fixtures (JSON-encoded args, subagent SYSTEM_MESSAGE verdicts, banner/inbound role attribution, truncated records); no infinite continue loop; GO staleness kept.\n4. G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools; allows everything when no role is detected.\n5. G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-qa skills; generated agents contain only existing tool names, no call_mcp_tool by default, PowerShell markers, lazy toolkit sections, upstream signatures and terminal strings intact.\n6. G-BUILD: build-agents, hooks.json, plugin.json, verify (static validator), verify-live, install.ps1 (dry-run default), lock-upstream/check-upstream, UPSTREAM.lock.json; `npm test` and `npm run verify` green.\n7. G-DOCS: Korean README (install, usage, troubleshooting, MCP permission, live verification, uninstall, coexistence with lazyantigravity).\n8. G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..IS-15 conformance audit with zero open gaps, final quality gate.",
+  "deliverables": [
+    "G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decodi...",
+    "G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 P...",
+    "G-GATES: primary-review-gate and excavator-review-gate ported with al...",
+    "G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools;...",
+    "G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-q...",
+    "G-BUILD: build-agents, hooks.json, plugin.json, verify (static valida...",
+    "G-DOCS: Korean README (install, usage, troubleshooting, MCP permissio...",
+    "G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..."
+  ],
+  "codexGoalMode": "aggregate",
+  "goals": [
+    {
+      "id": "G001-g-lib-hook-libraries-io-markers-tran",
+      "title": "G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decodi...",
+      "objective": "G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decoding and truncated-record substitution, Python-exact shlex + PowerShell tokenizer) with differential tests against CPython shlex.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decoding and t...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 1.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decoding and t....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-LIB: hook libraries (io, markers, transcript with hub-2.21.0 decoding and t....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G002-g-guards-zen-shell-guard-and-excavat",
+      "title": "G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 P...",
+      "objective": "G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 POSIX parity (all upstream vectors + differential vs Python) plus PowerShell/Windows grammar; adversarial bypass corpus all denied.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 POSIX par...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 2.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 POSIX par....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-GUARDS: zen-shell-guard and excavator-shell-guard ported with 1:1 POSIX par....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G003-g-gates-primary-review-gate-and-exca",
+      "title": "G-GATES: primary-review-gate and excavator-review-gate ported with al...",
+      "objective": "G-GATES: primary-review-gate and excavator-review-gate ported with all upstream vectors passing plus hub-2.21.0 fixtures (JSON-encoded args, subagent SYSTEM_MESSAGE verdicts, banner/inbound role attribution, truncated records); no infinite continue loop; GO staleness kept.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-GATES: primary-review-gate and excavator-review-gate ported with all upstre...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 3.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-GATES: primary-review-gate and excavator-review-gate ported with all upstre....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-GATES: primary-review-gate and excavator-review-gate ported with all upstre....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G004-g-mcp-mcp-role-guard-limits-read-onl",
+      "title": "G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools;...",
+      "objective": "G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools; allows everything when no role is detected.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools; allows e...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 4.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools; allows e....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-MCP: mcp-role-guard limits read-only roles to read-only MCP tools; allows e....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G005-g-roles-9-adapted-role-sources-share",
+      "title": "G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-q...",
+      "objective": "G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-qa skills; generated agents contain only existing tool names, no call_mcp_tool by default, PowerShell markers, lazy toolkit sections, upstream signatures and terminal strings intact.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-qa skills...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 5.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-qa skills....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-ROLES: 9 adapted role sources + shared harness/orchestration + gf-qa skills....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G006-g-build-build-agents-hooks-json-plug",
+      "title": "G-BUILD: build-agents, hooks.json, plugin.json, verify (static valida...",
+      "objective": "G-BUILD: build-agents, hooks.json, plugin.json, verify (static validator), verify-live, install.ps1 (dry-run default), lock-upstream/check-upstream, UPSTREAM.lock.json; `npm test` and `npm run verify` green.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-BUILD: build-agents, hooks.json, plugin.json, verify (static validator), ve...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 6.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-BUILD: build-agents, hooks.json, plugin.json, verify (static validator), ve....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-BUILD: build-agents, hooks.json, plugin.json, verify (static validator), ve....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G007-g-docs-korean-readme-install-usage-t",
+      "title": "G-DOCS: Korean README (install, usage, troubleshooting, MCP permissio...",
+      "objective": "G-DOCS: Korean README (install, usage, troubleshooting, MCP permission, live verification, uninstall, coexistence with lazyantigravity).",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-DOCS: Korean README (install, usage, troubleshooting, MCP permission, live...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 7.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-DOCS: Korean README (install, usage, troubleshooting, MCP permission, live....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-DOCS: Korean README (install, usage, troubleshooting, MCP permission, live....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    },
+    {
+      "id": "G008-g-qa-default-session-non-regression",
+      "title": "G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1...",
+      "objective": "G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..IS-15 conformance audit with zero open gaps, final quality gate.",
+      "status": "pending",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "happy path for: G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..IS-15...",
+          "userModel": "happy",
+          "expectedEvidence": "Replace via revise_criterion with observable happy-path proof for goal 8.",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C002",
+          "scenario": "edge case (boundary/empty/malformed)",
+          "userModel": "edge",
+          "expectedEvidence": "Replace via revise_criterion with boundary or malformed-input proof for: G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..IS-15....",
+          "capturedEvidence": null,
+          "status": "pending"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression: adjacent surface still works",
+          "userModel": "regression",
+          "expectedEvidence": "Replace via revise_criterion with regression proof for neighboring behavior after: G-QA: Default-session non-regression, hook latency p95 < 300 ms, IS-1..IS-15....",
+          "capturedEvidence": null,
+          "status": "pending"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-10-07T09:27:55.300Z",
+      "updatedAt": "2026-10-07T09:27:55.300Z"
+    }
+  ],
+  "codexObjective": "Complete the durable ulw-loop plan in .omo/ulw-loop/goals.json, including later accepted/appended stories, under the original brief constraints; use .omo/ulw-loop/ledger.jsonl as the audit trail."
+}
