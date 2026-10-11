@@ -21,7 +21,7 @@ const POSIX_READ_COMMANDS = new Set([
 
 const GIT_READ_COMMANDS = new Set([
   'status', 'diff', 'log', 'show', 'ls-files', 'ls-tree', 'rev-parse',
-  'rev-list', 'show-ref', 'cat-file', 'describe',
+  'rev-list', 'show-ref', 'cat-file', 'describe', 'branch',
 ]);
 
 const GIT_SAFE_LONG_OPTIONS = new Set([
@@ -32,6 +32,36 @@ const GIT_SAFE_LONG_OPTIONS = new Set([
   '--graph', '--decorate', '--no-decorate', '--all', '--pretty',
   '--format', '--abbrev-ref', '--verify', '--show-toplevel', '--',
 ]);
+
+// `git branch NAME` creates a ref, so positional args are allowed only with
+// --list (patterns) or as the value of --sort.
+const GIT_BRANCH_SAFE_LONG_OPTIONS = new Set(['--list', '--show-current', '--sort']);
+const GIT_BRANCH_SAFE_SHORT_OPTIONS = new Set(['-v', '-vv', '-a', '-r']);
+
+function gitOptionsReadOnly(subcmd, optArgs) {
+  if (subcmd === 'branch') {
+    return optArgs.every((arg, i) => {
+      if (arg.startsWith('--')) {
+        return GIT_BRANCH_SAFE_LONG_OPTIONS.has(arg.split('=', 2)[0].toLowerCase());
+      }
+      if (arg.startsWith('-')) {
+        return GIT_BRANCH_SAFE_SHORT_OPTIONS.has(arg);
+      }
+      return optArgs.includes('--list') || (i > 0 && optArgs[i - 1] === '--sort');
+    });
+  }
+  return optArgs.every((arg) => {
+    if (arg.startsWith('--')) {
+      const longOpt = arg.split('=', 2)[0].toLowerCase();
+      if (subcmd === 'ls-files' && (longOpt === '--others' || longOpt === '--exclude-standard')) {
+        return true;
+      }
+      return GIT_SAFE_LONG_OPTIONS.has(longOpt);
+    }
+    // -o is --output for diff/log; for ls-files it means --others (read-only).
+    return !arg.toLowerCase().startsWith('-o') || (subcmd === 'ls-files' && arg === '-o');
+  });
+}
 
 const POSIX_SEPARATORS = new Set([';', '|', '&&', '||']);
 const POSIX_FORBIDDEN_CHARS = new Set('<>$`\\(){}#');
@@ -90,12 +120,7 @@ function posixReadOnlyCommand(words) {
     if (!gArgs.length || !GIT_READ_COMMANDS.has(gArgs[0])) {
       return false;
     }
-    return gArgs.slice(1).every((arg) => {
-      if (arg.startsWith('--')) {
-        return GIT_SAFE_LONG_OPTIONS.has(arg.split('=', 2)[0]);
-      }
-      return !arg.startsWith('-o');
-    });
+    return gitOptionsReadOnly(gArgs[0], gArgs.slice(1));
   }
   if (command === 'node' || command === 'python3' || command === 'python') {
     if ((args.length === 1 && args[0] === '--version') || (args.length === 1 && args[0] === '-V')) {
@@ -238,20 +263,8 @@ function inspectPsCommand(body) {
         return denied;
       }
       const optArgs = gitArgs.slice(1);
-      for (const arg of optArgs) {
-        if (isDeniedPsParameter(arg, first)) {
-          return denied;
-        }
-        if (arg.startsWith('--')) {
-          const longOpt = arg.split('=', 2)[0].toLowerCase();
-          if (!GIT_SAFE_LONG_OPTIONS.has(longOpt)) {
-            return denied;
-          }
-        } else {
-          if (arg.toLowerCase().startsWith('-o')) {
-            return denied;
-          }
-        }
+      if (optArgs.some((arg) => isDeniedPsParameter(arg, first)) || !gitOptionsReadOnly(subcmd, optArgs)) {
+        return denied;
       }
     } else if (first === 'node' || first === 'python' || first === 'python3') {
       const args = segment.slice(1);

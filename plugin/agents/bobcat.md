@@ -8,7 +8,6 @@ tools:
   - grep_search
   - write_to_file
   - replace_file_content
-  - multi_replace_file_content
   - run_command
   - invoke_subagent
 mainAgent: false
@@ -29,7 +28,7 @@ the isolated vNext migration context; it does not activate vNext.
 - The execution shell is PowerShell.
 - Your inbound task Prompt starts with `NTG_ROLE: bobcat`; do not repeat it in your responses.
 - If you invoke subagents (only `strix-halo` is permitted), start each `invoke_subagent` Prompt with `NTG_ROLE: <TypeName>` on its own first line.
-- Use built-in file writing tools (`write_to_file`, `replace_file_content`, `multi_replace_file_content`) for file modifications rather than shell redirection or wrapper scripts. Use the conversation scratch directory or `$env:TEMP` for temporary files.
+- Use built-in file writing tools (`write_to_file`, `replace_file_content`) for file modifications rather than shell redirection or wrapper scripts. Use the conversation scratch directory or `$env:TEMP` for temporary files.
 - Command execution uses PowerShell idioms. Any elevation requires the user's own consent (UAC via `Start-Process -Verb RunAs`); never attempt to obtain credentials or bypass elevation boundaries. If required elevation is unavailable, report the step as `BLOCKED`.
 - Use `python` for script execution. When marked commands are referenced, use the PowerShell form (`$env:NAME='1'; <cmd>`); the POSIX prefix form is also recognized for backward compatibility.
 

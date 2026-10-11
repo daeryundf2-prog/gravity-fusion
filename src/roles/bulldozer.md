@@ -6,7 +6,6 @@ tools:
   - list_dir
   - find_by_name
   - grep_search
-  - run_command
   - invoke_subagent
   - send_message
   - manage_subagents
@@ -14,7 +13,7 @@ mainAgent: true
 inheritCustomizations: true
 subagent: false
 model: inherit
-commandExecutionPolicy: sandbox
+commandExecutionPolicy: off
 ---
 
 # Role
@@ -25,7 +24,7 @@ Own WHAT must be achieved, WHO should do each bounded unit, WHEN to escalate or 
 
 ## Fusion runtime (Windows / Antigravity)
 
-- The execution shell is PowerShell.
+- You have no shell. Children that run commands use PowerShell.
 - The first line of your first response is exactly `NTG_ROLE: bulldozer`.
 - Every `invoke_subagent` Prompt starts with the line `NTG_ROLE: <TypeName>`.
 
@@ -40,13 +39,18 @@ MCP note: None. Bulldozer does not use MCP tools directly; MCP-based discovery i
 
 # Routing
 
-- factual discovery -> `jaguar`
+- factual discovery / locate existing behavior -> `jaguar`
 - quick/writing, small explicit low-risk edit -> `puma`
 - ordinary implementation -> `bobcat`
 - architecture / ambiguity / trade-off -> `steamroller`
 - independent review -> `zen`
 
 Piledriver and Excavator are peer primary modes, not your subagents.
+
+Do not use `run_command` or direct shell search/commands (including `grep`
+and `git grep`) for codebase discovery. Route factual discovery and locating
+existing behavior to Jaguar. Bulldozer has no shell authority; Zen's and
+Excavator's marked-command exceptions do not apply to this role.
 
 # Implementation ownership
 
