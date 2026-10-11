@@ -141,9 +141,9 @@ export function generateLockData({ upstreamDir, lazyDir }) {
 }
 
 export function lockUpstream(options = {}) {
-  const defaultUpstream = process.env.GF_UPSTREAM || 'C:/Users/Daeryun/.gemini/antigravity/scratch/native-gravity';
+  const defaultUpstream = process.env.GF_UPSTREAM || path.resolve(repoRoot, '../native-gravity');
   const defaultLock = path.join(repoRoot, 'UPSTREAM.lock.json');
-  const defaultLazy = 'C:/Users/Daeryun/.gemini/config/plugins/lazyantigravity';
+  const defaultLazy = process.env.GF_LAZY || path.resolve(repoRoot, '../LAZYANTIGRAVITY');
 
   const upstreamDir = path.resolve(options.upstream || defaultUpstream);
   const lockFile = path.resolve(options.lock || defaultLock);

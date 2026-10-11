@@ -22,7 +22,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 const HOOK_SCRIPT = path.join(REPO_ROOT, 'plugin', 'hooks', 'excavator-shell-guard.mjs');
-const UPSTREAM_PYTHON_SCRIPT = 'C:/Users/Daeryun/.gemini/antigravity/scratch/native-gravity/hooks/excavator-shell-guard.py';
+const UPSTREAM_PYTHON_SCRIPT = path.resolve(
+  process.env.GF_UPSTREAM || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../native-gravity'),
+  'hooks/excavator-shell-guard.py',
+);
 
 function makePayload(command, toolName = 'run_command') {
   return {
