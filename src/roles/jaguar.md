@@ -6,7 +6,7 @@ tools:
   - grep_search
 mainAgent: false
 subagent: true
-model: flash
+model: inherit
 commandExecutionPolicy: sandbox
 mcpServers: []
 skills: []

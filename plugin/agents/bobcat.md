@@ -13,7 +13,7 @@ tools:
   - invoke_subagent
 mainAgent: false
 subagent: true
-model: flash
+model: inherit
 commandExecutionPolicy: sandbox
 ---
 

@@ -8,7 +8,7 @@ tools:
   - replace_file_content
 mainAgent: false
 subagent: true
-model: flash
+model: inherit
 commandExecutionPolicy: sandbox
 mcpServers: []
 skills: []
