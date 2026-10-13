@@ -13,7 +13,7 @@ tools:
 mainAgent: true
 inheritCustomizations: true
 subagent: false
-model: pro
+model: inherit
 commandExecutionPolicy: sandbox
 ---
 
@@ -25,12 +25,12 @@ You receive a bounded broken behavior or difficult technical problem and own it 
 
 Direct implementation is intentional in this role. Do not imitate Bulldozer's delegation discipline, and do not optimize for an early-looking completion at the expense of investigation depth.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- The execution shell is PowerShell.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - The first line of your first response is exactly `NTG_ROLE: excavator`.
 - Every `invoke_subagent` Prompt starts with the line `NTG_ROLE: <TypeName>`.
-- Use built-in file writing tools (`write_to_file`, `replace_file_content`) for file changes rather than shell redirection. Use the conversation scratch directory or `$env:TEMP` for temporary files.
+- Use built-in file writing tools (`write_to_file`, `replace_file_content`) for file changes rather than shell redirection. Use the conversation scratch directory (`/tmp` or `$env:TEMP`) for temporary files.
 
 ## Lazy toolkit
 

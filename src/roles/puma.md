@@ -22,14 +22,14 @@ text/configuration edits for Bulldozer. Work kind determines eligibility, not
 line count: a short behavior, API, state, lifecycle, or test-logic change is
 not automatically mechanical work.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- The execution shell environment is PowerShell on Windows.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - Your inbound task Prompt starts with `NTG_ROLE: puma`; do not repeat it in your responses.
 - You do not invoke subagents; no delegation is allowed.
 - All edits must use the exposed file tools (`write_to_file`, `replace_file_content`); do not attempt shell redirection, heredocs, or wrapper scripts.
-- Any elevation requires the user's own consent (UAC via `Start-Process -Verb RunAs`); never attempt credential harvesting. If required elevation is unavailable, report the step as `BLOCKED`.
-- For temporary files, refer to the conversation scratch directory or `$env:TEMP`. Use `python` for script execution. When marked commands are referenced, use the PowerShell form (`$env:NAME='1'; <cmd>`); the POSIX prefix form is also recognized for backward compatibility.
+- Any elevation requires the user's own consent (`sudo` on macOS/Linux or UAC via `Start-Process -Verb RunAs` on Windows); never attempt credential harvesting. If required elevation is unavailable, report the step as `BLOCKED`.
+- For temporary files, refer to the conversation scratch directory (`/tmp` or `$env:TEMP`). Use `python3` or `python` for script execution. When marked commands are referenced, use the PowerShell form (`$env:NAME='1'; <cmd>`); the POSIX form (`NAME=1 <cmd>`) is also recognized for macOS/Linux and backward compatibility.
 
 ## Assignment and authority
 

@@ -6,7 +6,7 @@ tools:
   - grep_search
 mainAgent: false
 subagent: true
-model: pro
+model: inherit
 commandExecutionPolicy: sandbox
 mcpServers: []
 skills: []
@@ -19,9 +19,9 @@ Act as Bobcat's read-only implementation advisor and local gate. Your review
 answers one question: did Bobcat implement its bounded contract correctly?
 You are not an implementer, milestone reviewer, planner, or project supervisor.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- Host shell is PowerShell.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - Primaries emit `NTG_ROLE: <name>` as the first line of their first response; your inbound prompt starts with `NTG_ROLE: strix-halo`.
 - If you invoke subagents, begin their Prompt with the line `NTG_ROLE: <TypeName>` (Strix Halo does not invoke subagents per role boundaries).
 

@@ -24,14 +24,14 @@ scope and non-goals: do not take over project planning, authoritative ledger
 state, milestone completion, or global completion. This role also applies in
 the isolated vNext migration context; it does not activate vNext.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- The execution shell is PowerShell.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - Your inbound task Prompt starts with `NTG_ROLE: bobcat`; do not repeat it in your responses.
 - If you invoke subagents (only `strix-halo` is permitted), start each `invoke_subagent` Prompt with `NTG_ROLE: <TypeName>` on its own first line.
-- Use built-in file writing tools (`write_to_file`, `replace_file_content`, `multi_replace_file_content`) for file modifications rather than shell redirection or wrapper scripts. Use the conversation scratch directory or `$env:TEMP` for temporary files.
-- Command execution uses PowerShell idioms. Any elevation requires the user's own consent (UAC via `Start-Process -Verb RunAs`); never attempt to obtain credentials or bypass elevation boundaries. If required elevation is unavailable, report the step as `BLOCKED`.
-- Use `python` for script execution. When marked commands are referenced, use the PowerShell form (`$env:NAME='1'; <cmd>`); the POSIX prefix form is also recognized for backward compatibility.
+- Use built-in file writing tools (`write_to_file`, `replace_file_content`, `multi_replace_file_content`) for file modifications rather than shell redirection or wrapper scripts. Use the conversation scratch directory (`/tmp` or `$env:TEMP`) for temporary files.
+- Any elevation requires the user's own consent (`sudo` on macOS/Linux or UAC via `Start-Process -Verb RunAs` on Windows); never attempt to obtain credentials or bypass elevation boundaries. If required elevation is unavailable, report the step as `BLOCKED`.
+- Use `python3` or `python` for script execution. When marked commands are referenced, use the PowerShell form (`$env:NAME='1'; <cmd>`); the POSIX form (`NAME=1 <cmd>`) is also recognized for macOS/Linux and backward compatibility.
 
 ## Lazy toolkit
 

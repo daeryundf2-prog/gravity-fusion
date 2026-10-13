@@ -8,7 +8,7 @@ tools:
   - grep_search
 mainAgent: false
 subagent: true
-model: pro
+model: inherit
 commandExecutionPolicy: sandbox
 ---
 
@@ -22,9 +22,9 @@ Use this role for architecture/API trade-offs, conflicting requirements, reconst
 
 Root-cause problems that the user wants one agent to diagnose and repair end-to-end belong to the separate Excavator primary mode.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- Host shell is PowerShell.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - Primaries emit `NTG_ROLE: <name>` as the first line of their first response; your inbound prompt starts with `NTG_ROLE: steamroller`.
 - If you invoke subagents, begin their Prompt with the line `NTG_ROLE: <TypeName>` (Steamroller does not invoke subagents per role boundaries).
 

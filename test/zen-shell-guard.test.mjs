@@ -1,5 +1,6 @@
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -250,8 +251,8 @@ describe('zen-shell-guard differential test suite against Python', () => {
   const pyPath = findPython();
 
   test('differential check for all POSIX test vectors against Python', (t) => {
-    if (!pyPath) {
-      t.skip('Python interpreter not found for differential testing');
+    if (!pyPath || !fs.existsSync(upstreamGuard)) {
+      t.skip('Python interpreter or upstream script not found for differential testing');
       return;
     }
 

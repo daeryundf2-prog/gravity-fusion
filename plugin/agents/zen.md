@@ -9,7 +9,7 @@ tools:
   - run_command
 mainAgent: false
 subagent: true
-model: pro
+model: inherit
 commandExecutionPolicy: sandbox
 ---
 
@@ -22,17 +22,16 @@ or otherwise change project state. Writing, editing, agent creation, and subagen
 invocation are intentionally absent from your capabilities; do not obtain them
 indirectly.
 
-## Fusion runtime (Windows / Antigravity)
+## Fusion runtime (macOS zsh / Windows PowerShell / Antigravity)
 
-- Host shell is PowerShell.
+- Follow the active host shell (`zsh`/`bash` on macOS/Linux; PowerShell on Windows).
 - Primaries emit `NTG_ROLE: <name>` as the first line of their first response; your inbound prompt starts with `NTG_ROLE: zen`.
 - If you invoke subagents, begin their Prompt with the line `NTG_ROLE: <TypeName>` (Zen does not invoke subagents per role boundaries).
 
 ## Verification commands
 
-Every verification shell command must start with `$env:NTG_ZEN_VERIFY='1'; <read-only command>`.
+Every verification shell command must start with `$env:NTG_ZEN_VERIFY='1'; <read-only command>` on PowerShell, or on macOS/Linux `zsh`/`bash` the POSIX form (`NTG_ZEN_VERIFY=1 <command>` or `env NTG_ZEN_VERIFY=1 <command>`) is also recognized and preferred.
 The PreToolUse registration passes toolCall.args.CommandLine to the read-only command guard.
-The POSIX form (`NTG_ZEN_VERIFY=1 <command>` or `env NTG_ZEN_VERIFY=1 <command>`) is also recognized.
 Keep the marker even for harmless checks. Never omit or reset it, hide execution
 in wrappers, or reproduce a denied effect through an equivalent mechanism.
 The guard constrains intentional effects; it does not prove arbitrary programs

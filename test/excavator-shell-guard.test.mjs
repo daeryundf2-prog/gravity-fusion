@@ -1,5 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,7 +23,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 const HOOK_SCRIPT = path.join(REPO_ROOT, 'plugin', 'hooks', 'excavator-shell-guard.mjs');
-const UPSTREAM_PYTHON_SCRIPT = 'C:/Users/Daeryun/.gemini/antigravity/scratch/native-gravity/hooks/excavator-shell-guard.py';
+const UPSTREAM_PYTHON_SCRIPT = path.resolve(REPO_ROOT, '../native-gravity/hooks/excavator-shell-guard.py');
 
 function makePayload(command, toolName = 'run_command') {
   return {
@@ -135,8 +136,8 @@ describe('excavator-shell-guard: Differential testing against upstream Python', 
   }
 
   it('matches Python output exactly on all 33 upstream vectors', (t) => {
-    if (!pythonPath) {
-      t.skip('Python interpreter not found for differential tests');
+    if (!pythonPath || !fs.existsSync(UPSTREAM_PYTHON_SCRIPT)) {
+      t.skip('Python interpreter or upstream script not found for differential tests');
       return;
     }
 
@@ -193,8 +194,8 @@ describe('excavator-shell-guard: Differential testing against upstream Python', 
   });
 
   it('matches Python output on empty body and non-run_command input', (t) => {
-    if (!pythonPath) {
-      t.skip('Python interpreter not found');
+    if (!pythonPath || !fs.existsSync(UPSTREAM_PYTHON_SCRIPT)) {
+      t.skip('Python interpreter or upstream script not found');
       return;
     }
 
